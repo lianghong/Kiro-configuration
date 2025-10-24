@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Python Lint and Format on Save",
+  "description": "Automatically lint and format Python code with ruff, mypy, isort and flake8 when Python source files are saved",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "**/*.py"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A Python file has been saved. Please run the following tools in order:\n1. isort - to sort and organize imports\n2. ruff format - to format the code\n3. ruff check --fix - to lint and auto-fix issues\n4. flake8 - for additional style checking\n5. mypy - for type checking\n\nFix any auto-fixable issues and report any remaining issues that need manual attention. Use the project's existing configuration files (pyproject.toml, setup.cfg, .flake8, mypy.ini, etc.)."
+  }
+}

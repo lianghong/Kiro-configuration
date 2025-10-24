@@ -1,0 +1,25 @@
+{
+  "name": "TypeScript Test Updater",
+  "description": "Monitors changes to TypeScript source files and updates corresponding test files with tests for new functions or methods",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "**/*.ts",
+      "!**/*.test.ts",
+      "!**/*.spec.ts",
+      "!**/node_modules/**"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "I noticed you've edited a TypeScript file. I'll analyze the changes and update the corresponding test file.
+
+1. First, I'll identify any new functions or methods added to the source file
+2. Then I'll locate or create the corresponding test file (either .test.ts or .spec.ts in the same directory)
+3. I'll generate appropriate test cases for the new functions/methods
+4. I'll ensure the tests follow the project's existing testing patterns and conventions
+
+Here are my suggested test updates based on your changes:"
+  }
+}
